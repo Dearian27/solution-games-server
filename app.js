@@ -4,20 +4,27 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 
 import authRoute from './routes/auth.js'
+import path from 'path';
 
 dotenv.config();
 const app = express();
+
 app.use(cors({
   origin: 'http://localhost:3000',
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
 }));
+
 app.use(express.json());
+
+app.use('/public', express.static(path.join('./', 'public')));
+// app.use(express.static(path.join('./', 'public')));
+
 const port = process.env.PORT || 6680;
 
-app.get('/', (req, res) => {
-  res.send('<h1>Welcome!</h1>');
-})
+// app.get('/games/mario/index.html', (req, res) => {
+//   res.send('<h1>Welcome!</h1>');
+// })
 
 app.use('/api/auth', authRoute);
 
