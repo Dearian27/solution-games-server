@@ -1,4 +1,4 @@
-import mongoose, { Schema } from 'mongoose';
+import mongoose from 'mongoose';
 
 const userSchema = mongoose.Schema(
   {
@@ -22,7 +22,8 @@ const userSchema = mongoose.Schema(
       
     },
     role: {
-      type: String, // pupil teacher admin
+      type: String,
+      enum: ['pupil', 'teacher', 'admin'],
       required: true,
     }
   }
