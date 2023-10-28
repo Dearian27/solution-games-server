@@ -10,10 +10,6 @@ const groupSchema = mongoose.Schema(
       type: String,
       requred: true
     },
-    code: {
-      type: String,
-      required: true
-    },
     members: {
       type: [String],
       default: []

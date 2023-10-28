@@ -5,6 +5,7 @@ import cors from 'cors';
 
 import authRoute from './routes/auth.js';
 import groupRoute from './routes/group.js';
+import gameRoute from './routes/game.js';
 import path from 'path';
 
 dotenv.config();
@@ -25,6 +26,7 @@ const port = process.env.PORT || 6680;
 
 app.use('/api/auth', authRoute);
 app.use('/api/group', groupRoute);
+app.use('/api/game', gameRoute);
 
 
 
